@@ -42,7 +42,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
     return instance;
 }
 
-#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
+//#ifdef __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__
 
 - (void)authenticate:(NSString *)URLScheme callback:(TMAuthenticationCallback)callback {
     // Clear token secret in case authentication was previously started but not finished
@@ -76,7 +76,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
                               [NSString stringWithFormat:@"https://www.tumblr.com/oauth/authorize?oauth_token=%@",
                                responseParameters[@"oauth_token"]]];
             
-            [[NSWorkspace sharedWorkspace] openURL:authURL];
+            [[UIApplication sharedApplication] openURL:authURL];
             
         } else {
             if (callback) {
@@ -149,7 +149,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
     return YES;
 }
 
-#endif
+//#endif
 
 - (void)xAuth:(NSString *)emailAddress password:(NSString *)password callback:(TMAuthenticationCallback)callback {
     NSDictionary *requestParameters = @{
